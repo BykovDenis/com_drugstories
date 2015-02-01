@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+	<name>com_drugstories</name>
+	<author>Bykov Denis</author>
+	<creationDate>Novemder 2014</creationDate>
+	<copyright>(C) 2014 Bykov Denis. All rights reserved.
+	</copyright>
+	<license>GNU General Public License version 2 or later; see
+		LICENSE.txt</license>
+	<authorEmail>stivenrain@gmail.com</authorEmail>
+	<authorUrl>www.pharmmedsprav.com</authorUrl>
+	<version>3.3.0</version>
+	<description>COM_DRUGSTORIES_XML_DESCRIPTION</description>
+	<files folder="site">
+		<folder>controllers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>drugstories.php</filename>
+		<filename>routor.php</filename>
+	</files>
+	<administration>
+		<menu img="class:newsfeeds">Аптечные сети</menu>
+		<submenu>
+			<!--
+				Note that all & must be escaped to &amp; for the file to be valid
+				XML and be parsed by the installer
+			-->
+			<menu link="option=com_drugstories" view="submanager" img="class:newsfeeds"
+				alt="Аптечные сети">Аптечные сети</menu>							
+		</submenu>
+		<files folder="admin">
+			<folder>controllers</folder>						
+			<folder>models</folder>			
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>drugstories.php</filename>
+		</files>
+	</administration>
+</extension>
+
