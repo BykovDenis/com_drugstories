@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="com_helloworld_default_title" option="com_drugstories_view_default_option">
+	<layout title="com_drugstories_default_title" option="com_drugstories_view_default_option">
 		<help
 			key="JHELP_MENUS_MENU_ITEM_DRUGSTORIES"
 		/>

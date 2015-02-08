@@ -18,7 +18,6 @@
 		<filename>controller.php</filename>
 		<filename>index.html</filename>
 		<filename>drugstories.php</filename>
-		<filename>routor.php</filename>
 	</files>
 	<administration>
 		<menu img="class:newsfeeds">Аптечные сети</menu>

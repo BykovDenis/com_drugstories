@@ -27,9 +27,9 @@ defined('_JEXEC') or die("Restricted access");
             </td>    
             <td>
                 <!-- статический URL -->
-                <!--a href="<?= JUri::current();?>?option=com_drugstories&layout=drugstore&store_id=<?= $row->store_id; ?>"> <?php echo $row->store_name; ?></a-->                
+                <!--a href="<?= JUri::current();?>?option=com_drugstories&view=drugstore&store_id=<?= $row->store_id; ?>"> <?php echo $row->store_name; ?></a-->                
                 <!-- URL c ЧПУ -->
-                <a href="<?=JRoute::_('index.php?layout=drugstore&id='.$row->store_id); ?>"> <?php echo $row->store_name; ?></a>
+                <a href="<?=JRoute::_('index.php?option=com_drugstories&view=drugstore&store_id='.$row->store_id); ?>"> <?=$row->store_name; ?></a>
             </td>            
             <td>
                 <?php echo $row->city_name; ?></a>
@@ -46,7 +46,9 @@ defined('_JEXEC') or die("Restricted access");
         ?>
     </table>
     <?php echo $this->pagination->getListFooter(); ?>
-    <a href="<?= JUri::current() ?>?option=com_contractor"><<< Вернуться к перечню аптек <<< </a>
+    <!--a href="<?= JUri::current() ?>?option=com_drugstories&view=drugstories"><<< Вернуться к перечню аптек <<< </a-->
+    <a href="<?=JRoute::_('index.php?view=contractor'); ?>"><<< Вернуться к перечню аптек <<< </a>
+    
     
     <input type="hidden" name="option" value="com_drugstories" />
     <input type="hidden" name="task" value="" />
@@ -56,3 +58,17 @@ defined('_JEXEC') or die("Restricted access");
     
 </form>
 
+<?php  
+
+/*
+//трассировка 
+
+print_r($_POST);
+
+echo "<br>";
+echo 'contractor_id ='.JRequest::getVar('contractor_id');
+echo "<br>";
+echo JFactory::getSession()->get('contrqctor_id');
+echo "<br>";
+print_r($_SESSION);
+*/

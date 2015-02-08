@@ -79,7 +79,7 @@ $row = $this->items[0];
     </tr>
 </table>
 
-<a href="<?=  JUri::current()?>?option=com_drugstories"><<< вернуться к списку аптек <<< </a>
+<a href="<?=  JUri::current()?>"><<< вернуться к списку аптек <<< </a>
 
 <?php JRoute::_('index.php?view=drugstore&store_id'.$row->store_id);
 

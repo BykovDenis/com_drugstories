@@ -50,12 +50,17 @@ class DrugstoriesModelDrugstories extends JModelList{
         $query->from('#__stores as ss');
 	$query->innerJoin('#__contractor as cr on ss.contractor_id = cr.contractor_id');
 	$query->innerJoin('#__cities as cs on ss.city_id = cs.city_id');
+        if(JRequest::getVar('contractor_id'))
+            $query->where('cr.contractor_id ='.JRequest::getVar('contractor_id'));
+        /*
 	if(JRequest::getVar('contractor_id'))
 		$query->where('cr.contractor_id ='.JRequest::getVar('contractor_id'));
-        if($session->get('contractor_id'))
+        elseif($session->get('contractor_id'))
                 $query->where('cr.contractor_id ='.$session->get('contractor_id'));
-        if(JRequest::getVar('store_id'))
-		$query->where('ss.store_id ='.JRequest::getVar('store_id'));
+        elseif($_SESSION['contractor_id'])
+                $query->where('cr.contractor_id ='.$_SESSION['contractor_id']);
+         * *
+         */
         $query->order('ss.store_id');  
         $this->_db->setQuery($query, $this->limitstart, $this->perPage);
         $this->_db->query();
