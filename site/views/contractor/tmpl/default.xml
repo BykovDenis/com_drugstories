@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="com_contractor_default_title" option="com_contractor_view_default_option">
+		<help
+			key="JHELP_MENUS_MENU_ITEM_CONTRACTOR"
+		/>
+		<message>
+			<![CDATA[com_contractor_view_default_desc]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"
+		>
+			<field name="id" type="drugstories"
+				description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
+				extension="com_contractor"
+				label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
+				show_root="true"
+				required="false"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

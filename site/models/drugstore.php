@@ -5,7 +5,7 @@ defined('_JEXEC') or die("Restricted access");
 jimport('joomla.application.component.modellist');
 jimport('joomla.libraries.cms.pagination'); 
 
-class DrugstoriesModelDrugstories extends JModelList{
+class DrugstoriesModelDrugstore extends JModelList{
     
     private $perPage;
     private $limitstart;
@@ -46,37 +46,21 @@ class DrugstoriesModelDrugstories extends JModelList{
         $session = JFactory::getSession();
        
         $query = $this->_db->getQuery(true);
-        $query->select(' ss.name as header_store, ss.store_id, ss.name as store_name, cs.name as city_name, ss.address, ss.phones, cr.name as contractor_name');
+        $query->select('cr.contractor_id, ss.name as header_store, ss.store_id, ss.name as store_name, cs.name as city_name, ss.address, ss.phones, cr.name as contractor_name');
         $query->from('#__stores as ss');
 	$query->innerJoin('#__contractor as cr on ss.contractor_id = cr.contractor_id');
-	$query->innerJoin('#__cities as cs on ss.city_id = cs.city_id');
-        if(JRequest::getVar('contractor_id'))
-            $query->where('cr.contractor_id ='.JRequest::getVar('contractor_id'));
-        /*
-	if(JRequest::getVar('contractor_id'))
-		$query->where('cr.contractor_id ='.JRequest::getVar('contractor_id'));
-        elseif($session->get('contractor_id'))
-                $query->where('cr.contractor_id ='.$session->get('contractor_id'));
-        elseif($_SESSION['contractor_id'])
-                $query->where('cr.contractor_id ='.$_SESSION['contractor_id']);
-         * *
-         */
+	$query->innerJoin('#__cities as cs on ss.city_id = cs.city_id'); 
+        if(JRequest::getVar('store_id'))
+		$query->where('ss.store_id ='.JRequest::getVar('store_id'));
         $query->order('ss.store_id');  
         $this->_db->setQuery($query, $this->limitstart, $this->perPage);
         $this->_db->query();
         $rows=$this->_db->loadObjectList();
-        $total = $this->getTotal();               
-        $this->pagination = new JPagination($total,$this->limitstart,$this->perPage);
-                
+               
         return $rows;
     }
     
-    public function getPagination() {
       
-        return $this->pagination;
-       
-    }
-        
 //   JError::raiseWarning(500, (String) $this->cache[$store]); 
 
  
